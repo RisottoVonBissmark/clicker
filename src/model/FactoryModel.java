@@ -5,6 +5,7 @@ public class FactoryModel {
     double production;
     double delay;
     int upgradeValue;
+    int lastProd;
 
     public FactoryModel() {
         this.production = 1;
@@ -36,4 +37,7 @@ public class FactoryModel {
         this.upgradeValue = newUpgradeValue;
     }
 
+    public boolean canProduce() {
+        return System.currentTimeMillis() - lastProd >= delay*1000;
+    }
 }

@@ -1,8 +1,9 @@
 package controller;
 
 import model.ClickerModel;
+import observer.Observateur;
 
-public class ClickerController {
+public class ClickerController implements Observateur{
     
     ClickerModel model;
 
@@ -33,5 +34,11 @@ public class ClickerController {
         this.model.setScore(score);
         this.model.setScoreIncrement(scoreIncrements);
         this.model.setPriceUpgrade(priceUpgrade);
+    }
+
+    public void update(String prod, String b) {
+        int score = this.model.getScore();
+        score += Integer.valueOf(prod);
+        this.model.setScore(score);
     }
 }
